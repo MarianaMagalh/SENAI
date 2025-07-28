@@ -1,0 +1,81 @@
+# vetores - são estrutura de dados que armazenam variáveis de forma ordenada e mutável.
+
+"""
+lista - tipo de dado utlizado paraguadar outras variaveis. (cores = ["azul"]
+    pop - remove o indice espeficico, remove item da lista cores.pop(posição do item).
+    remove - remove o conteudo, cores.remove("laranja")
+    insert - adicionar itens (cores.insert(2,"roxo"))
+"""
+import nt
+"""
+# exer 1
+# 2 % n == 0
+
+inicio = int(input("Insira o inicio da lista: "))
+intervalo = int(input("Insira o intervalo da lista: "))
+final = int(input("Insira o final da lista: "))
+
+numeros_primo = []
+
+
+primo
+if num >= 1:
+    for i in range(1, num):
+        if num % i != 0:
+            numeros_primo.append(num)
+        else:
+            numeros_primo.remove(num)
+            break
+"""
+
+# matrizes - estruturas bidimensionais de dados, ou sej, armazenam listas em listas, de forma suscinta.
+"""
+dicionario:
+    - acessar item no dicionario, cadastro["idade"] += 1
+    - adicionar itens, cadastro["cor_fav"] = "Roxo"
+    - remove item, cadastro.pop("cor_fav")
+    - percorrer dicionario(
+        for chave in cadastro:
+            print(f"{chave}:{cadastro[chave]}")
+        
+        for chave, conteudo in cadastro.items():
+            print(f"{chave}:{conteudo}")
+    )
+    - lista dentro do dicionario(
+        dicionario = {
+            "a":[1, 2, 3, 4],
+            "b":[5, 6, 7, 8],
+            "c":[9, 10, 11, 12]
+        }
+    )
+    - lista dentro de lista(
+        lista = [[1,2],[3,2]]
+        lista[0][1] => 2 | outra forma: [0:1]
+    )
+    
+    cadastro = {
+    "nome":"Mariana",
+    "idade":"18",
+    "profissao": "Desenvolvedora",
+    "estado_civil":"solteira",
+}
+"""
+
+# exer 1
+"""
+lista = [[2, 4], [6, 8]]
+
+print((lista[0][1] * lista[1][0]) - (lista[0][0] * lista[1][1]))
+"""
+
+# desafio
+# random
+
+
+
+
+
+
+
+
+

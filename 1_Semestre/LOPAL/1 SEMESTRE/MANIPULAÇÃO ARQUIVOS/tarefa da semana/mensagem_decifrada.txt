@@ -1,0 +1,11 @@
+. Por que os desenvolvedores nao gostam de sair ao ar livre? Porque o mundo real tem muitos bugs.
+. Como voce pode identificar um programador extrovertido? Ele olha para os SEUS sapatos enquanto fala com voce.
+. O que o programador Python disse quando encontrou uma cobra? "Ah, e apenas uma referencia!"
+. Como voce faz um programador sorrir? Diga: "Ola, Mundo!"
+. Como os programadores se despedem? "byte byte!"
+. Como os programadores expressam seu amor? "Enquanto (coracao.aindaBate()) { eu.teAmo(); }"
+. Por que os programadores odeiam espacos? Porque eles preferem tabs!
+. Como voce conforta um desenvolvedor JavaScript? "Nao se preocupe, vai ficar tudo 'undefined'."
+. O que o HTML disse ao CSS? "Voce sabe como me fazer parecer bom!"
+. Por que o banco de dados se juntou ao Tinder? Ele estava procurando uma relacao!"
+. O que a funcao disse apos ser chamada? "Eu retornei!"

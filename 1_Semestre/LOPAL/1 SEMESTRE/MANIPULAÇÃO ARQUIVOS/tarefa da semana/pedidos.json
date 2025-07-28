@@ -1,0 +1,38 @@
+[
+    {
+        "ID": "1",
+        "Nome": "João",
+        "Endereco": "Rua das Flores, 123",
+        "Produto": "Camiseta",
+        "Quantidade": "2",
+        "Preco": "50",
+        "Data": "01/01/2023"
+    },
+    {
+        "ID": "2",
+        "Nome": "Mariana",
+        "Endereco": "Avenida Central, 456",
+        "Produto": "Tênis",
+        "Quantidade": "1",
+        "Preco": "120",
+        "Data": "02/01/2023"
+    },
+    {
+        "ID": "3",
+        "Nome": "Carlos",
+        "Endereco": "Praça da Estação, 789",
+        "Produto": "Mochila",
+        "Quantidade": "1",
+        "Preco": "80",
+        "Data": "03/01/2023"
+    },
+    {
+        "ID": "4",
+        "Nome": "Fernanda",
+        "Endereco": "Alameda dos Anjos, 101",
+        "Produto": "Relógio",
+        "Quantidade": "1",
+        "Preco": "150",
+        "Data": "04/01/2023"
+    }
+]

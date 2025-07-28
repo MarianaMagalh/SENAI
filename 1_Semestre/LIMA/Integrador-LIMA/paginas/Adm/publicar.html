@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADM</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kapakana:wght@300..400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="bodyTodasPaginas">
+    <header>
+        <nav id="menu">
+            <figure>
+                <img id="boxLogo" src="/imgs/logo/logo.png"
+                    alt="Logotipo da marca Radiant FootWear com as letras estilizadas &quot;R&quot; e &quot;F&quot; no centro, cercadas pela frase &quot;Walk Boots&quot; repetida em quatro lados, formando um quadrado rotacionado." />
+            </figure>
+            <h1 id="tituloMenu"><a href="inicial.html">Radiant FootWear</a></h1>
+
+            <ul>
+                <li id="linksMenuAdm"><a href="inicial.html">Inicial</a></li>
+                <li id="linksMenuAdm"><a href="adicionar.html">Adicionar</a></li>
+                <li id="linksMenuAdm"><a href="excluir.html">Remover</a></li>
+                <li id="linksMenuAdm"><a href="editar.html">Editar</a></li>
+                <li id="linksMenuAdm"><a href="publicar.html">Publicar</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main id="boxPublicar">
+        <h1>Publicar Produto</h1>
+
+        <section class="publicar">
+            <div>
+                <p>Clique no produto que deseja publicar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-plus-circle2" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                        <path
+                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                    </svg>
+                </p>
+            </div>
+            <form>
+                <label>Nome</label>
+                <input type="text" id="inputProduto" placeholder="Insira o nome do produto...">
+                <label>Descrição</label>
+                <input type="text" id="inputProduto" placeholder="Insira a descrição do produto...">
+                <label>Preço</label>
+                <input type="text" id="inputProduto" placeholder="Insira o preço do produto...">
+
+                <button><a href="#">Publicar Produto</a></button>
+            </form>
+        </section>
+    </main>
+
+    <h4 class="tituloProdSemelhantes">Produtos Disponiveis para Publicar</h4>
+    <section class="catalogo">
+        <table>
+            
+            <tr>
+                <td class="produtos">
+                    <a href="#">
+                        <figure class="cardProduto">
+                            <img src="../../../../imgs/catalogo/clodin.jpeg"
+                                alt="Bota roxa com tiras metálicas e salto grosso. Visual dramático e forte, inspirado em personagens Monster High." />
+                            <figcaption class="discricaoProduto">
+                                <h4>Bota Wolf Glow</h4>
+                                <p>R$ 380,90</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </td>
+                <td class="produtos">
+                    <a href="#">
+                        <figure class="cardProduto">
+                            <img src="../../../../imgs/catalogo/draculalura-c-baixo.jpeg"
+                                alt="Bota rosa bebê com detalhes de fivelas e salto plataforma. Inspirada no visual da personagem Draculaura." />
+                            <figcaption class="discricaoProduto">
+                                <h4>Bota Cutie Bite</h4>
+                                <p>R$ 250,90</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </td>
+                <td class="produtos">
+                    <a href="#">
+                        <figure class="cardProduto">
+                            <img src="../../../../imgs/catalogo/ghoulilha.jpeg"
+                                alt="Tênis-bota com plataforma e estampa em preto, branco e vermelho. " />
+                            <figcaption class="discricaoProduto">
+                                <h4>Bota Skull Stitch</h4>
+                                <p>R$ 200,90</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </td>
+                <td class="produtos">
+                    <a href="#">
+                        <figure class="cardProduto">
+                            <img src="../../../../imgs/catalogo/conturno-preto.jpeg"
+                                alt="Bota preta robusta com plataformas e correntes metálicas." />
+                            <figcaption class="discricaoProduto">
+                                <h4>Coturno Chains </h4>
+                                <p>R$ 250,90</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section class="acessoEstoque">
+        <h4>Precisa de ver mais produtos?</h4>
+        <p>Acesse o Estoque e com um click o produto estará disponivel aqui</p>
+        <button><a href="">Acessar Estoque</a></button>
+    </section>
+
+    <footer>
+        <h3 class=" tituloFooter">Informações Importantes</h3>
+        <hr class="divisaoCorClara">
+
+        <ul class="linksAdm">
+            <li id="linksMenuAdm"><a href="inicial.html">Inicial</a></li>
+            <li id="linksMenuAdm"><a href="adicionar.html">Adicionar</a></li>
+            <li id="linksMenuAdm"><a href="excluir.html">Remover</a></li>
+            <li id="linksMenuAdm"><a href="editar.html">Editar</a></li>
+            <li id="linksMenuAdm"><a href="publicar.html">Publicar</a></li>
+        </ul>
+        <section class="boxDireitos">
+            <p class="direitosAutorais">&copy; Copyright 2025 - Radiant FootWear - By Mariana Macena</p>
+        </section>
+    </footer>
+</body>
+
+</html>
