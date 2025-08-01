@@ -1,0 +1,19 @@
+- instalar todas as bibliotecas -  pip install -r requirements.txt
+
+- add novas bibliotecas ao arquivo requerimentos - pip freeze > requirements.txt
+
+- pip install djangorestframework - Instalar framework django
+
+- py -m venv env - Criar ambiente virtual (env** pode ser qualquer palavra, que não irá alterar o conteúdo.)
+
+- .env\Scripts\activate - entrará na caixinha
+
+- django-admin startproject livraria . - criará projeto virtual, o nome livraria é opcional.
+
+- django-admin startapp api - criar API
+
+- pip list - mostra todos os pacotes já instalados
+
+- dir > lista.txt - exibe o horário quando os pacotes foram instalados
+
+- pip freeze > requirements.txt - cria uma lista com todos os pacotes instalados
