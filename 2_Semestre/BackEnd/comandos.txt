@@ -8,6 +8,8 @@
 
 - .env\Scripts\activate - entrará na caixinha
 
+- deactivate - sai da env
+
 - django-admin startproject livraria . - criará projeto virtual, o nome livraria é opcional.
 
 - django-admin startapp api - criar API
