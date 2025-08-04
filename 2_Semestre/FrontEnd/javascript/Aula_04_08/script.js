@@ -117,3 +117,10 @@ switch (amarela){
         console.log("Você não gosta de nenhuma dessas cores!");
         break;
 }
+
+
+// operador ternário
+let idade = prompt("Digite a sua idade: ");
+let maiorIdade = (idade >= 18) ? "Maior de idade" : "Menor de idade";
+console.log(maiorIdade);
+
