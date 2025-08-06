@@ -1,0 +1,54 @@
+.comfortaa{
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.send-flowers-regular {
+    font-family: "Send Flowers", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+body{
+    height: auto;
+    background: #E91E63;
+    background: linear-gradient(0deg,rgba(233, 30, 99, 1) 0%, rgba(247, 207, 225, 1) 50%, rgba(248, 231, 211, 1) 100%);
+    h1{
+        font-family: "Send Flowers", cursive;
+        font-size: 100px;
+    }
+    h3{
+        font-family: "Comfortaa", sans-serif;
+    }
+    a{
+        font-family: "Comfortaa", sans-serif;
+        text-decoration: none;
+        color: #E91E63;
+        cursor: pointer;
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+    
+}
+
+img{
+    width: 350px;
+    height: 350px;
+    border-radius: 30%;
+    border: 2px solid #E91E63;
+    cursor: pointer;
+    margin: 20px;
+}
+
+div{
+    p{
+        font-family: "Comfortaa", sans-serif;
+        text-decoration: none;
+        color: #90EE90;
+        cursor: pointer;
+        font-size: 20px;
+    }
+}

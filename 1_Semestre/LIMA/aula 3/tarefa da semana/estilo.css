@@ -1,0 +1,103 @@
+.ballet{
+  font-family: "Ballet", cursive;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.darker-grotesque {
+  font-family: "Darker Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+
+body{
+    background-color: #FFC8DD;
+}
+
+
+header{
+    background-color: #FFAFCC;
+    box-shadow:  0 0 10px 0 #00000057;
+    
+    nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 85px;
+
+        h2{
+            font-family: "Ballet", cursive;
+            font-size: 45px;
+            letter-spacing: 3px;
+            font-weight: 200;
+            margin-top: 15px;
+        }
+
+    }
+}
+
+ul, li{
+    display: flex;
+    margin: 5px;
+    margin-left: 20px;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.box{
+    background-color: #CDB4DB;
+    width: 650px;
+    height: auto;
+    margin: 15px;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    margin: auto;
+
+    td{
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+
+tr > th{
+    margin: auto;
+    color: #FFffff;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#roda_pe{
+    background-color: #A2D2FF;
+    width: auto;
+    height: 50px;
+}
+
+#roda_pe p{
+    text-align: center;
+    color: #000000;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 5px;
+}
