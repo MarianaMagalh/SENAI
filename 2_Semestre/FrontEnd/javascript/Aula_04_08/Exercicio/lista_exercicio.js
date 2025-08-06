@@ -119,4 +119,31 @@ if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
     alert(ano + " não é um ano bissexto.");
 }   
 
+
+
+// exer 9
+let anoNascimento = prompt("Em que ano vc nasceu? ")
+
+idade = anoNascimento - 2025
+
+if (idade < 18){
+    nAlis = idade - 18
+    alert("Você ainda não pode realizar o alistamento militar, faltam " + nAlis + "anos para vc se alistar.")
+} else if (idade > 18){
+    passou = idade - 18
+    alert("Você tem mais de 18 anos, passaram " + passou + "do alistamento.")
+}
+
 */
+
+// exer 10
+let comeco = Number(prompt("Em que horas o jogo começou? "))
+let fim = Number(prompt("Em que horas o jogo terminou? "))
+
+let limite = 24
+let horaJogadas = comeco - fim
+
+if (horaJogadas > limite){
+    
+}
+
