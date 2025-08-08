@@ -2,6 +2,8 @@
 
 - add novas bibliotecas ao arquivo requerimentos - pip freeze > requirements.txt
 
+- starta o projeto - py manage.py runserver
+
 - pip install djangorestframework - Instalar framework django
 
 - py -m venv env - Criar ambiente virtual (env** pode ser qualquer palavra, que não irá alterar o conteúdo.)
@@ -19,3 +21,15 @@
 - dir > lista.txt - exibe o horário quando os pacotes foram instalados
 
 - pip freeze > requirements.txt - cria uma lista com todos os pacotes instalados
+
+- pip install django-cors-headers - baixa a última versão do django cors
+
+- py manage.py runserver - start project 
+
+- ctrl + c -> cls - parar o servidor e limpar
+
+- py manage.py makemigrations - criar tabela 
+
+- py manage.py migrate - aplica alterações na tabela
+
+- manage.py createsuperuser  - criar usuario django
