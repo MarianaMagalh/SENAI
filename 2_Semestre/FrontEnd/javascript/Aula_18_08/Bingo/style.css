@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Griastetrial';
+    src: url("./assets/Griastetrial.otf") format(truetype);
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Lemon-Milk";
+    src: url("./assets/LEMONMILK-Regular.otf") format(truetype);
+}
+
+:root{
+    --primary:#3D1308;
+    --white: #fff;
+    --ligth-pink: #F8E5EE;
+    --ligth-red: #9F2042;
+    --dark-pink: #7B0D1E;
+    --black: #0000003f;
+}
+
+body{
+    background-color: var(--primary);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        color: var(--white);
+        font-family: 'Griastetrial';
+        font-size: 100px;
+        letter-spacing: 10px;
+        text-align: center;
+    }
+}
+
+.infos{
+    background-color: var(--ligth-pink);
+    font-family: "Lemon-Milk";
+    width: 70%;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+aside{
+    background-color: var(--dark-pink);
+    width: 600px;
+    height: 550px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.respostaBingo{
+    width: 400px;
+    height: 350px;
+    background-color: var(--white);
+    margin-bottom: 50px;
+    border: solid var(--ligth-red) 4px;
+    border-radius: 60px;
+    box-shadow: 2px 2px 2px 1px var(--black);
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    background-color: var(--ligth-pink);
+    border-radius: 50px;
+    border: none;
+    font-family: "Lemon-Milk";
+    font-size: 20px;
+    box-shadow: 2px 2px 2px 1px var(--black);
+}
+
