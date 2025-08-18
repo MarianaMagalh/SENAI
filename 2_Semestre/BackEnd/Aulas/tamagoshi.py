@@ -1,6 +1,3 @@
-import random
-
-
 class Tamagoshi:
     def __init__(self, nome):
         self.nome = nome
@@ -12,26 +9,31 @@ class Tamagoshi:
     def alimentar(self, quantidade):
         if (quantidade >= 0) and (quantidade <= 100):
             self.fome -= self.fome * (quantidade / 100)
+            if self.fome < 0:
+                self.fome = 0
 
     def brincar(self, quantidade):
         if (quantidade >= 0) and (quantidade <= 100):
-            self.tedio -= self.tedio * (quantidade/100)       
+            self.tedio -= self.tedio * (quantidade/100)  
+            if self.tedio < 0
 
     def getHumor(self):
-        return 100 - ((self.fome * self.tedio)/2)
+        humor = 100 - ((self.fome * self.tedio) / 2)
+        return max(humor, 0)
 
     def vida(self):
-        if ((self.fome > 50 and self.fome <= 60)) or ((self.tedio > 50 and self.tedio <= 60)):
-            self.saude -= 10
-        elif ((self.fome > 60 and self.fome <= 80)) or ((self.tedio > 60 and self.tedio <= 80)):
-            self.saude -= 30
-        elif ((self.fome > 80 and self.fome <= 90)) or ((self.tedio > 80 and self.tedio <= 90)):
-            self.saude -= 50
-        elif ((self.fome > 90)) or ((self.tedio > 90)):
-            print("Estou morrendo, cuide de mim por favor!!")
-        elif ((self.fome > 99)) or ((self.tedio > 99)):
-            self.saude = 0
-            print("O seu bichinho morreu.")
+        if self.saude > 0:
+            if 50 < self.fome <= 60 or 50 < self.tedio <= 60: 
+                self.saude -= 10
+            elif 60 < self.fome <= 80 or 60 < self.tedio <= 80:
+                self.saude -= 30
+            elif 80 < self.fome <= 90 or 80 < self.tedio <= 90:
+                self.saude -= 50
+            elif self.fome > 90 or self.tedio > 90:
+                print("Estou morrendo, cuide de mim por favor!!")
+            if self.fome > 99 or self.tedio > 99:
+                self.saude = 0
+                print("O seu bichinho morreu.")
 
     def tempoPassando(self):
         self.vida()
@@ -39,67 +41,10 @@ class Tamagoshi:
         self.tedio += 2.5
         self.fome += 5
 
-
-class Universo(Tamagoshi):
-    def __init__(self, nome, cor, fundo, alimento, diversao):
-        super().__init__(nome)
-        self.cor = cor
-        self.fundo = fundo 
-        self.alimento = alimento 
-        self.diversao = diversao
-
-    def tipoAlimento(self):
-        alimentos = ["materia Escura", "antimateria", "planetas e estrelas"]
-
-        if alimentos == alimentos:
-            super().alimentar()
-        else:
-            print("Eu não como esse tipo de coisa")
-
-    def divertido(self):
-        # colocar tempo para ele falar isso
-        print("Gira, gira, gira\n" \
-        "Vamos todos girará\n" \
-        "Vamos dá meia-volta, volta-meia vamos dá\n" \
-        ":)")
-
-    def mudaCor(self):
-        self.humor = ["feliz", "triste"]
-
-        if self.humor == "feliz":
-            print("Azul")
-        elif self.humor == "triste":
-            print("Jupter")
-        else:   
-            print("Branco")
-
-
-class Arte(Tamagoshi):
-    def __init__(self, nome, pintura, alimento, frases):
-        super().__init__(nome)
-        self.pintura = pintura
-        self. alimento = alimento 
-        self.frase = frases
-
-    def citacao(self):
-        self.frase = [
-            "A arte é a mentira que nos permite conhecer a verdade. - Pablo Picasso.",
-            "A arte não reproduz o que vemos. Ela nos faz ver. - Paul Klee.",
-            "A arte nos permite encontrar a nós mesmos e nos perder ao mesmo tempo. - Thomas Merton.",
-            "O alvo da minha pintura é o sentimento."
-        ]
-
-        mostra = random.random(self.frase)
-        print(mostra)
-
-    def comer(self):
-        self.alimento = ["tinta aquarela", "pinceis", "telas"]
-
-        if self.alimentos == self. alimentos:
-            super().alimentar()
-        else:
-            print("Perdo-me, mas eu não como isso")
-
+        if self.tedio > 100:
+            self.tedio = 100  
+        if self.fome > 100:
+            self.fome = 100 
 
 """
 Parte 1:
