@@ -11,12 +11,17 @@ let btn = document.getElementById("sortear");
 Math.floor(Math.random() * 100) + 1;
 */
 
-function random(num){
-    return Math.floor(Math.random() * num) + 1;
+function random(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// número sorteado
-console.log(random(75))
+let b = random(1, 15);
+let i = random(16, 30);
+let n = random(31, 45);
+let g = random(46, 60);
+let o = random(61, 75);
+
+console.log("b"+b, "i"+i, "n"+n, "g"+g, "o"+o);
 
 btn.addEventListener("click", () =>{
     // quando apertar tem que mostrar o número no div numAleatorio
@@ -26,6 +31,3 @@ btn.addEventListener("click", () =>{
 // cartela
 // acabar o bingo quando a cartela ficar completa
    
-
-
-
