@@ -27,7 +27,7 @@ class Tamagoshi:
             self.energia -= 10
             self.tedio = max(0, self.tedio - 15)  
             self.historico.append(f"{self.nome} brincou e está feliz.")
-            print(f"{self.nome} brincou! Felicidade: {self.felicidade}, Energia: {self.energia}")
+            print(f"{self.nome} brincou!\nFelicidade: {self.felicidade}, Energia: {self.energia}")
         else:
             print(f"{self.nome} está cansado demais para brincar!")
             
@@ -51,8 +51,8 @@ class Tamagoshi:
 
     def passar_tempo(self):
         self.vida()
-        self.idade += 0.2
-        self.tedio += 2.5
+        self.idade += 1
+        self.tedio += 2
         self.fome += 5
         self.felicidade = max(0, self.felicidade - 2)
 
@@ -66,7 +66,7 @@ class Tamagoshi:
 
     def mostrar_status(self):
         print(f"\nStatus de {self.nome}:")
-        print(f"Fome: {self.fome} | Felicidade: {self.felicidade} | Energia: {self.energia} | Saúde: {self.saude} | Humor: {self.get_humor()} | Tedio: {self.tedio}")
+        print(f"Fome: {self.fome} | Idade: {self.idade} |Felicidade: {self.felicidade} | Energia: {self.energia} | Saúde: {self.saude} | Humor: {self.get_humor()} | Tedio: {self.tedio}")
 
     def mostrar_historico(self):
         print("\nHistórico de atividades:")
@@ -84,7 +84,7 @@ class Dragao(Tamagoshi):
             self.fogo -= 10
             self.energia -= 20
             self.historico.append(f"{self.nome} cuspiu fogo!")
-            print(f"{self.nome} soltou fogo! Fogo restante: {self.fogo}")
+            print(f"{self.nome} soltou fogo!\nFogo restante: {self.fogo}")
         else:
             print(f"{self.nome} está cansado demais ou sem fogo para soltar chamas!")
             
@@ -93,7 +93,7 @@ class Dragao(Tamagoshi):
             self.energia -= 10
             self.felicidade = min(100, self.felicidade + 10)
             self.historico.append(f"{self.nome} rugiu ferozmente!")
-            print(f"{self.nome} rugiu! Energia: {self.energia}, Felicidade: {self.felicidade}")
+            print(f"{self.nome} rugiu!\nEnergia: {self.energia}, Felicidade: {self.felicidade}")
         else:
             print(f"{self.nome} está muito cansado para rugir!")
 
@@ -103,7 +103,7 @@ class Dragao(Tamagoshi):
             self.fogo -= 5
             self.felicidade = min(100, self.felicidade + 20)
             self.historico.append(f"{self.nome} voou alto nos céus!")
-            print(f"{self.nome} voou alto! Energia: {self.energia}, Fogo: {self.fogo}")
+            print(f"{self.nome} voou alto!\nEnergia: {self.energia}, Fogo: {self.fogo}")
         else:
             print(f"{self.nome} não tem energia suficiente para voar!")
             
@@ -113,6 +113,10 @@ class Hipogrifo(Tamagoshi):
     def __init__(self, nome):
         super().__init__(nome)
         self.respeito = 50  
+        
+        if self.respeito <= 20:
+            self.felicidade -= 50
+            self.saude -= 20
 
     def voar(self):
         if self.energia > 30:
@@ -129,7 +133,7 @@ class Hipogrifo(Tamagoshi):
             self.energia -= 15
             self.felicidade = min(100, self.felicidade + 10)
             self.historico.append(f"{self.nome} planou suavemente pelo ar.")
-            print(f"{self.nome} planou! Energia: {self.energia}, Felicidade: {self.felicidade}")
+            print(f"{self.nome} planou!\nEnergia: {self.energia}, Felicidade: {self.felicidade}")
         else:
             print(f"{self.nome} está sem energia para planar.")
 
@@ -138,7 +142,7 @@ class Hipogrifo(Tamagoshi):
             self.energia -= 10
             self.respeito += 5
             self.historico.append(f"{self.nome} soltou um grito poderoso!")
-            print(f"{self.nome} gritou! Respeito: {self.respeito}, Energia: {self.energia}")
+            print(f"{self.nome} gritou!\nRespeito: {self.respeito}, Energia: {self.energia}")
         else:
             print(f"{self.nome} está muito cansado para gritar!")
 
@@ -154,7 +158,7 @@ class Camaleao(Tamagoshi):
             self.camuflagem -= 20
             self.felicidade = min(100, self.felicidade + 15)
             self.historico.append(f"{self.nome} se camuflou e ficou protegido.")
-            print(f"{self.nome} se camuflou! Camuflagem restante: {self.camuflagem}")
+            print(f"{self.nome} se camuflou!\nCamuflagem restante: {self.camuflagem}")
         else:
             print(f"{self.nome} está sem energia para se camuflar!")
             
@@ -163,7 +167,7 @@ class Camaleao(Tamagoshi):
             self.energia -= 10
             self.camuflagem -= 20
             self.historico.append(f"{self.nome} se escondeu habilmente.")
-            print(f"{self.nome} se escondeu! Energia: {self.energia}, Camuflagem: {self.camuflagem}")
+            print(f"{self.nome} se escondeu!\nEnergia: {self.energia}, Camuflagem: {self.camuflagem}")
         else:
             print(f"{self.nome} não pode se esconder agora!")
 
@@ -171,5 +175,5 @@ class Camaleao(Tamagoshi):
         self.energia = min(100, self.energia + 25)
         self.camuflagem = min(100, self.camuflagem + 15)
         self.historico.append(f"{self.nome} relaxou e recuperou energia e camuflagem.")
-        print(f"{self.nome} relaxou! Energia: {self.energia}, Camuflagem: {self.camuflagem}")
+        print(f"{self.nome} relaxou!\nEnergia: {self.energia}, Camuflagem: {self.camuflagem}")
 

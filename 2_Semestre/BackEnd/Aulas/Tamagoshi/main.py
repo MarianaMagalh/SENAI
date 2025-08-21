@@ -6,8 +6,9 @@ from tamagoshi import Tamagoshi, Dragao, Hipogrifo, Camaleao
 def main():
     print("Bem-vindo ao Tamagoshi!")
     print("\nEscolha o tipo do seu bichinho:\n1 - Dragão\n2 - Hipogrifo\n3 - Camaleão\n")
-    nome = input("Digite o nome do seu bichinho: ")
     escolha = input("Insira o número do seu bichinho: ")
+    nome = input("Digite o nome do seu bichinho: ")
+    
 
     if escolha == "1":
         bicho = Dragao(nome)
@@ -73,8 +74,6 @@ def main():
                 elif opcao == "6":
                     bicho.relaxar()
         elif opcao == "7":
-            bicho.dormir()
-        elif opcao == "8":
             bicho.mostrar_historico()
         elif opcao == "0":
             print("Saindo do jogo. Até mais!")
