@@ -1,18 +1,13 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView
-from .models import Autor
-from .serializers import AutorSerializers
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from .models import Autor, Editora, Livro
+from .serializers import AutorSerializers, EditoraSerializer, LivrosSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
 # fazendo a view para listar e criar autores
 # fazendo tudo, em html e criando o GET e POST
-class AutoresView(ListCreateAPIView):
-   queryset = Autor.objects.all()
-   serializer_class = AutorSerializers
-
-
 @api_view(['GET', 'POST'])
 def visualizacao_autor(request):
    if request.method == 'GET':
@@ -27,3 +22,31 @@ def visualizacao_autor(request):
    else:
       return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
+# AUTORES
+# GET E POST - ListCreateAPIView
+class AutoresView(ListCreateAPIView):
+   queryset = Autor.objects.all()
+   serializer_class = AutorSerializers
+   
+# DELETE - RetrieveUpdateDestroyAPIView
+class AutoresDetailView(RetrieveUpdateDestroyAPIView):
+   queryset = Autor.objects.all()
+   serializer_class = AutorSerializers
+   
+# EDITORAS
+class EditorasView(ListCreateAPIView):
+   queryset = Editora.objects.all()
+   serializer_class = EditoraSerializer
+   
+class EditorasDetailView(RetrieveUpdateDestroyAPIView):
+   queryset = Editora.objects.all()
+   serializer_class = EditoraSerializer
+   
+# LIVROS
+class LivrosView(ListCreateAPIView):
+   queryset = Livro.objects.all()
+   serializer_class = LivrosSerializer
+   
+class LivroDetailView(RetrieveUpdateDestroyAPIView):
+   queryset = Livro.objects.all()
+   serializer_class = LivrosSerializer

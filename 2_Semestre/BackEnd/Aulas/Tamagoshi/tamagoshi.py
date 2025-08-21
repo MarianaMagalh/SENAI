@@ -1,7 +1,7 @@
 class Tamagoshi:
     def __init__(self, nome):
         self.nome = nome
-        self.fome = 100 
+        self.fome = 0 
         self.saude = 100
         self.idade = 0
         self.tedio = 0
@@ -72,7 +72,6 @@ class Tamagoshi:
         print("\nHistórico de atividades:")
         for evento in self.historico:
             print("-", evento)
-
 
 
 class Dragao(Tamagoshi):
