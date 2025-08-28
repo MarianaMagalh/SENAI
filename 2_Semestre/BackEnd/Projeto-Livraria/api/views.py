@@ -2,9 +2,12 @@ from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Autor, Editora, Livro
 from .serializers import AutorSerializers, EditoraSerializer, LivrosSerializer
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from django_filters.rest_framework import DjangoFilterBackend # usado para encontrar valores exatos
+from rest_framework.filters import SearchFilter # encontra strings
 
 # fazendo a view para listar e criar autores
 # fazendo tudo, em html e criando o GET e POST
@@ -22,31 +25,44 @@ def visualizacao_autor(request):
    else:
       return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
+
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+
 # AUTORES
 # GET E POST - ListCreateAPIView
 class AutoresView(ListCreateAPIView):
    queryset = Autor.objects.all()
    serializer_class = AutorSerializers
+   permission_classes = [IsAuthenticated]
+   filter_backends = [DjangoFilterBackend, SearchFilter]
+   filterset_fields = ['id']
+   search_fields = ['name']
    
 # DELETE - RetrieveUpdateDestroyAPIView
 class AutoresDetailView(RetrieveUpdateDestroyAPIView):
    queryset = Autor.objects.all()
    serializer_class = AutorSerializers
+   permission_classes = [IsAuthenticated]
    
 # EDITORAS
 class EditorasView(ListCreateAPIView):
    queryset = Editora.objects.all()
    serializer_class = EditoraSerializer
+   permission_classes = [IsAuthenticated]
    
 class EditorasDetailView(RetrieveUpdateDestroyAPIView):
    queryset = Editora.objects.all()
    serializer_class = EditoraSerializer
+   permission_classes = [IsAuthenticated]
    
 # LIVROS
 class LivrosView(ListCreateAPIView):
    queryset = Livro.objects.all()
    serializer_class = LivrosSerializer
+   permission_classes = [IsAuthenticated]
    
 class LivroDetailView(RetrieveUpdateDestroyAPIView):
    queryset = Livro.objects.all()
    serializer_class = LivrosSerializer
+   permission_classes = [IsAuthenticated]
