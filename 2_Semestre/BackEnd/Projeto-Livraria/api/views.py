@@ -26,8 +26,6 @@ def visualizacao_autor(request):
       return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
 
 # AUTORES
 # GET E POST - ListCreateAPIView

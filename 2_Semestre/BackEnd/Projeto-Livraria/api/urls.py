@@ -13,10 +13,10 @@ urlpatterns = [
     
     # GET / POST
     path('authors', visualizacao_autor),
-    path('autores', AutoresView.as_view()),
+    # path('autores', AutoresView.as_view()),
     path('editoras', EditorasView.as_view()),
     path('livros', LivrosView.as_view()),
-    path('search/', AutoresView.as_view(),)
+    path('search/', AutoresView.as_view()),
     
     # UPDATE / DELETE
     path('autores/<int:pk>', AutoresDetailView.as_view()),
