@@ -31,7 +31,7 @@ class Editora(models.Model):
     
 class Livro(models.Model):
     titulo = models.CharField(max_length=50)
-    subTitulo = models.CharField(max_length=50)
+    subtitulo = models.CharField(max_length=50)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
     editora = models.ForeignKey(Editora, on_delete=models.CASCADE)
     isbn = models.CharField(max_length=50)

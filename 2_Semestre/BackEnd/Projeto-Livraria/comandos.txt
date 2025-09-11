@@ -33,3 +33,9 @@
 - py manage.py migrate - aplica alterações na tabela
 
 - manage.py createsuperuser  - criar usuario django
+
+- python manage.py popular --arquivo population/autores.csv - importar autores 
+
+- python manage.py popular --arquivo population/autores.csv --truncate - apagar registro anterior
+
+- python manage.py popular --arquivo population/editoras.csv 
