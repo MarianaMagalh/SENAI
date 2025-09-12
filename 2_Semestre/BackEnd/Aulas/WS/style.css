@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Riesling';
+    src: url("./riesling/riesling.ttf") format(truetype);
+}
+
+@font-face {
+    font-family: 'Rounded Elegance';
+    src: url("./rounded_elegance/Rounded\ Elegance\ Regular.otf") format(truetype);
+}
+
+/* Cores */
+:root{
+    --white: #fff;
+    --base: #edede9;
+    --font: #000814;
+    --ligth-purple: #9f86c0;
+    --dark-pink: #450920;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Config de todas as pags*/
+body {
+    background-color: var(--base);
+
+    h1{
+        font-family: 'Riesling';
+        font-size: 50px;
+        text-align: center;
+        letter-spacing: 6px;
+        margin-top: 20px;
+    }
+
+    h2{
+        font-family: 'Rounded Elegance';
+        font-size: 50px;
+        text-align: left;
+    }
+}
+
+/* Forms de Cadastro e Login*/
+form{
+    flex-direction: column;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    label{
+        font-family: 'Rounded Elegance';
+        font-size: 20px;
+        width: 250px;
+
+    }
+
+    input{
+        border: 1.5px solid var(--font);
+        width: 250px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: var(--white);
+    }  
+
+    button{
+        width: 100px;
+        height: 40px;
+        font-size: 25px;
+        letter-spacing: 2px;
+        border-radius: 20px;
+        border: none;
+        background-color: var(--dark-pink);
+        color: var(--white);
+        font-family: 'Rounded Elegance';
+    }
+}
+
+/* Config do HEADER*/
+header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    nav{
+        width: 80%;
+        height: 50px;
+        background-color: var(--ligth-purple);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin-top: 10px;
+
+        ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 10px;
+
+            li, a{
+                text-decoration: none;
+                color: var(--white);
+                font-family: 'Rounded Elegance';
+                font-size: 25px;
+            }
+        }
+    }
+}
