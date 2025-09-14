@@ -25,44 +25,50 @@
 /* Config de todas as pags*/
 body {
     background-color: var(--base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     h1{
         font-family: 'Riesling';
-        font-size: 50px;
+        font-size: 60px;
         text-align: center;
         letter-spacing: 6px;
         margin-top: 20px;
     }
 
-    h2{
+    h3{
         font-family: 'Rounded Elegance';
-        font-size: 50px;
-        text-align: left;
+        font-size: 25px;
     }
 }
 
 /* Forms de Cadastro e Login*/
 form{
+    width: 400px;
     flex-direction: column;
     text-align: left;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-top: 20px;
 
     label{
         font-family: 'Rounded Elegance';
-        font-size: 20px;
-        width: 250px;
+        font-size: 25px;
+        width: 350px;
 
     }
 
     input{
-        border: 1.5px solid var(--font);
-        width: 250px;
-        height: 20px;
+        border: 2px solid var(--dark-pink);
+        width: 350px;
+        height: 30px;
         border-radius: 10px;
         background-color: var(--white);
+        padding-left: 10px;
     }  
 
     button{
@@ -75,6 +81,16 @@ form{
         background-color: var(--dark-pink);
         color: var(--white);
         font-family: 'Rounded Elegance';
+        margin-top: 15px;
+    }
+
+    a{
+        align-self: flex-start;
+        margin-left: 25px;
+        font-family: 'Rounded Elegance';
+        text-decoration: none;
+        color: var(--font);
+        font-size: 20px;
     }
 }
 
@@ -87,18 +103,16 @@ header{
     align-items: center;
 
     nav{
-        width: 80%;
-        height: 50px;
-        background-color: var(--ligth-purple);
+        width: 100%;
+        height: 60px;
+        background-color: var(--font);
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 20px;
-        margin-top: 10px;
 
         ul{
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             list-style: none;
             gap: 10px;
@@ -110,5 +124,22 @@ header{
                 font-size: 25px;
             }
         }
+    }
+}
+
+
+/* Fita de Filme */
+.fitaFilme{
+    width: 100%;
+    background-color:  var(--font);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .framesFilme{
+        width: 20px;
+        height: 15px;
+        background-color: var(--white);
     }
 }
