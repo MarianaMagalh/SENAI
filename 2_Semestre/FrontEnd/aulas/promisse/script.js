@@ -25,7 +25,7 @@ EVENTUAL
   processar o resultado.
 
 
-*/
+
 
 const ifood = new Promise((resolve, reject) => {
     console.log("Pedido aguardando confirmação...");
@@ -44,3 +44,18 @@ ifood
     .then(msg => console.log("Sucesso: ", msg)) // possivel colocar um alert
     .catch(erro => console.log("Erro: ", erro))
     .finally(() => console.log("Operação finalizada!"));
+
+*/
+/* jogo de aposta, deve ter um saldo inicial */
+let btnApostar = document.getElementById("btn-apostar");
+let pSaldo = document.getElementById("saldo");
+let bodyHTML = document.querySelector("body");
+
+pSaldo = 100;
+
+pSaldo.innerHTML = "Saldo" + pSaldo
+
+
+btnApostar.addEventListener("click", () => {
+
+})

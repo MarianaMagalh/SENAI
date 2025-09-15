@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cor{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2px opx;
+}
+
+.quadrado{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+}
+
+article{
+    font-size: 10pt;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    padding-top: 10px;
+}
