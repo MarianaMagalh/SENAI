@@ -1,0 +1,42 @@
+QUALQUER COISA OLHAR O DONTPAD lindomar
+
+npm i -g @angular/cli
+
+ng new front
+
+* usar typescript
+
+no
+CSS
+no
+no
+None
+
+entra na pasta - nomePast>ng server
+
+npm install
+npm run dev
+
+pasta app
+app.html - apaga o codigo
+novo codigo em index.html
+
+criar uma nova pasta dentro de app, chamanda environments e 
+dentro dela criar o arq 
+
+arq angular.json
+development > apaga tudo e colocar > 
+# onde vc vai buscar o apiBase
+"fileReplacements": [{
+    "replace": "src/app/environments/environment.ts",
+    "with": "src/app/environments/environment.ts"
+}]
+
+
+criar pasta
+
+WEB
+LocalStorage - armazena dados, como token
+
+APP
+AsyncStorage

@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend # usado para encontrar valores exatos
 from rest_framework.filters import SearchFilter # encontra strings
+from .filters import AutoFilter
 
 # fazendo a view para listar e criar autores
 # fazendo tudo, em html e criando o GET e POST
@@ -32,10 +33,11 @@ def visualizacao_autor(request):
 class AutoresView(ListCreateAPIView):
    queryset = Autor.objects.all()
    serializer_class = AutorSerializers
-   permission_classes = [IsAuthenticated]
+   # permission_classes = [IsAuthenticated]
    filter_backends = [DjangoFilterBackend, SearchFilter]
    filterset_fields = ['id']
    search_fields = ['name']
+   filterset_class = AutoFilter
    
 # DELETE - RetrieveUpdateDestroyAPIView
 class AutoresDetailView(RetrieveUpdateDestroyAPIView):
