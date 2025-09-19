@@ -36,6 +36,7 @@ class MyHandle(SimpleHTTPRequestHandler):
         return super().list_directory(path)
     
     def accont_user(self, login, passaword):
+        
         loga = "mariana@gmail.com"
         senha = 1234
         
@@ -113,10 +114,26 @@ class MyHandle(SimpleHTTPRequestHandler):
             
             logou = self.accont_user(login, password)
             
+            print("Data from: ")
+            print("Email: ",form_data.get('email', [""])[0])
+            print("Passaword: ",form_data.get('passaword',[""])[0])
+            
             self.send_response(200)
             self.send_header("Content-type","text/html")
             self.end_headers()
-            self.wfile.write("Data Retrieving Sucess!".encode('utf-8'))
+            self.wfile.write(logou.encode('utf-8'))
+            
+        elif self.path == '/2_Semestre/BackEnd/Aulas/WS/send_cadastro':
+            # recebendo a requisição
+            content_length = int(self.headers['Content-length'])
+            body = self.rfile.read(content_length).decode('utf-8')
+            form_data = parse_qs(body)
+            
+            self.send_response(200)
+            self.send_header("Content-type","text/html")
+            self.end_headers()
+            
+            
         else:
             super(MyHandle, self).do_POST()
     
