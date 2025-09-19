@@ -15,6 +15,7 @@
 # Proxima Camada
 import os
 from http.server import SimpleHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs
 
 class MyHandle(SimpleHTTPRequestHandler):
     def list_directory(self, path): # class base
@@ -33,6 +34,15 @@ class MyHandle(SimpleHTTPRequestHandler):
             pass
         
         return super().list_directory(path)
+    
+    def accont_user(self, login, passaword):
+        loga = "mariana@gmail.com"
+        senha = 1234
+        
+        if login == loga and senha == passaword:
+            return "Usuario Logado"
+        else:
+            return "Usuario não existe"
     
     def do_GET(self):
         # caminho para Login
@@ -90,6 +100,25 @@ class MyHandle(SimpleHTTPRequestHandler):
                 
         else:
             super().do_GET()
+            
+    def do_POST(self):
+        if self.path == '/2_Semestre/BackEnd/Aulas/WS/send_login':
+            # recebendo a requisição
+            content_length = int(self.headers['Content-length'])
+            body = self.rfile.read(content_length).decode('utf-8')
+            form_data = parse_qs(body)
+            
+            login = form_data.get('email', [""])[0]
+            password = int(form_data.get('password', [""])[0])
+            
+            logou = self.accont_user(login, password)
+            
+            self.send_response(200)
+            self.send_header("Content-type","text/html")
+            self.end_headers()
+            self.wfile.write("Data Retrieving Sucess!".encode('utf-8'))
+        else:
+            super(MyHandle, self).do_POST()
     
 def main():
     server_address = ('', 8000)
