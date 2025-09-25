@@ -1,78 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="./index.html">HOME</a></li>
-                <li><a href="./listar_filmes.html">FILMES</a></li>
-                <li><a href="./cadastro_filmes.html"></a>CADASTRO DE FILMES</li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="./listar_filmes.html">FILMES</a></li>
+          <li><a href="./cadastro_filmes.html">CADASTRO DE FILMES</a></li>
+        </ul>
+      </nav>
     </header>
     <div class="fitaFilme">
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
-        <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
+      <div class="framesFilme"></div>
     </div>
 
     <h1>Cadastro de Filmes</h1>
 
     <form action="/2_Semestre/BackEnd/Aulas/WS/send_cadastro" method="post">
-        <label for="nome_filme">Nome do Filme</label>
-        <input type="text" name="nome_filme" id="nome_filme" required>
+      <div class="maeOrganizacao">
+        <div id="alinhamento">
+          <label for="nome_filme">Nome do Filme</label>
+          <input type="text" name="nome_filme" id="nome_filme" required />
 
-        <label for="atores">Atores</label>
-        <input type="text" name="atores" id="atores">
+          <label for="atores">Atores</label>
+          <input type="text" name="atores" id="atores" />
 
-        <label for="diretor">Diretor</label>
-        <input type="text" name="diretor" id="diretor">
+          <label for="diretor">Diretor</label>
+          <input type="text" name="diretor" id="diretor" />
 
-        <label for="ano">Ano de Lançamento</label>
-        <input type="text" name="ano" id="ano">
+          <label for="ano">Ano de Lançamento</label>
+          <input type="text" name="ano" id="ano" />
+        </div>
+        <div id="alinhamento">
+          <label for="genero">Gênero</label>
+          <input type="text" name="genero" id="genero" />
 
-        <label for="genero">Gênero</label>
-        <input type="text" name="genero" id="genero">
+          <label for="produtora">Produtora</label>
+          <input type="text" name="produtora" id="produtora" />
 
-        <label for="produtora">Produtora</label>
-        <input type="text" name="produtora" id="produtora">
-
-        <label for="sinopse">Sinopse</label>
-        <textarea name="sinopse" id="sinopse" rows="4" cols="50"></textarea>
-
-        <button>Enviar</button>
+          <label for="sinopse">Sinopse</label>
+          <textarea name="sinopse" id="sinopse" rows="4" cols="50"></textarea>
+        </div>
+      </div>
+      <button>Enviar</button>
     </form>
-
-</body>
-
+  </body>
 </html>

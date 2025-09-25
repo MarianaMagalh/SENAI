@@ -49,46 +49,115 @@ body {
 /* Forms de Cadastro e Login*/
 form {
     width: 400px;
-    flex-direction: column;
     text-align: left;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
     margin-top: 20px;
 
-    label {
-        font-family: 'Rounded Elegance';
-        font-size: 25px;
-        width: 350px;
+    div {
+        gap: 30px;
 
-    }
 
-    input {
-        border: 2px solid var(--dark-pink);
-        width: 350px;
-        height: 30px;
-        border-radius: 10px;
-        background-color: var(--white);
-        padding-left: 10px;
-    }
+        label {
+            font-family: 'Rounded Elegance';
+            font-size: 25px;
+            width: 350px;
+        }
 
-    button {
-        width: 100px;
-        height: 40px;
-        font-size: 25px;
-        letter-spacing: 2px;
-        border-radius: 20px;
-        border: none;
-        background-color: var(--dark-pink);
-        color: var(--white);
-        font-family: 'Rounded Elegance';
-        margin-top: 15px;
+        input,
+        textarea {
+            border: 2px solid var(--dark-pink);
+            width: 350px;
+            height: 35px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: var(--white);
+            padding-left: 10px;
+            font-family: 'Rounded Elegance';
+        }
+
+        textarea {
+            height: 125px;
+        }
+
     }
 
     a {
         align-self: flex-start;
         margin-left: 25px;
+        font-family: 'Rounded Elegance';
+        text-decoration: none;
+        color: var(--font);
+        font-size: 20px;
+    }
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    font-family: 'Rounded Elegance';
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: var(--medium-pink);
+}
+
+.maeOrganizacao {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* CADASTRO USUARIO */
+.cadastroUSer,
+.loginUser {
+    width: 400px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+
+    label {
+        font-family: 'Rounded Elegance';
+        font-size: 25px;
+        width: 350px;
+    }
+
+    input,
+    textarea {
+        border: 2px solid var(--dark-pink);
+        width: 350px;
+        height: 35px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background-color: var(--white);
+        padding-left: 10px;
+        font-family: 'Rounded Elegance';
+    }
+
+    textarea {
+        height: 125px;
+    }
+
+
+
+    a {
+        align-self: center;
+        margin-left: 25px;
+        margin-top: 20px;
         font-family: 'Rounded Elegance';
         text-decoration: none;
         color: var(--font);
@@ -129,6 +198,7 @@ header {
         }
     }
 }
+
 
 
 /* Fita de Filme */
@@ -173,23 +243,23 @@ header {
     width: auto;
     margin-right: 23px;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--white);
+}
 
-    a {
-        text-decoration: none;
-        color: var(--white);
-    }
+.btnLinks:hover {
+    background-color: var(--medium-pink);
 }
 
 p {
     margin: 30px;
     font-family: 'Rounded Elegance';
-    font-size: 30px;
+    font-size: 25px;
     color: var(--font);
 }
 
 table {
     margin-top: 50px;
-    margin-left: 30px;
     align-self: center;
     width: 95%;
     border: var(--ligth-purple) solid 1px;
@@ -198,19 +268,20 @@ table {
 
 
 td {
-    border: 1px solid var(--dark-pink);
+    background-color: var(--white);
+    border: 1.5px solid var(--dark-pink);
     padding: 8px;
     text-align: left;
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Rounded Elegance';
 }
 
 th {
     padding: 8px;
-    border: 1px solid var(--dark-pink);
+    border: 1.5px solid var(--dark-pink);
     text-align: left;
     background-color: var(--medium-pink);
-    font-size: 30px;
+    font-size: 25px;
     color: var(--white);
     font-family: 'Rounded Elegance';
 }
