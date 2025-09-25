@@ -9,15 +9,16 @@
 }
 
 /* Cores */
-:root{
+:root {
     --white: #fff;
     --base: #edede9;
     --font: #000814;
     --ligth-purple: #9f86c0;
     --dark-pink: #450920;
+    --medium-pink: #a13f65;
 }
 
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
@@ -30,7 +31,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    h1{
+    h1 {
         font-family: 'Riesling';
         font-size: 60px;
         text-align: center;
@@ -38,14 +39,15 @@ body {
         margin-top: 20px;
     }
 
-    h3{
+    h3 {
         font-family: 'Rounded Elegance';
         font-size: 25px;
     }
+
 }
 
 /* Forms de Cadastro e Login*/
-form{
+form {
     width: 400px;
     flex-direction: column;
     text-align: left;
@@ -55,23 +57,23 @@ form{
     gap: 10px;
     margin-top: 20px;
 
-    label{
+    label {
         font-family: 'Rounded Elegance';
         font-size: 25px;
         width: 350px;
 
     }
 
-    input{
+    input {
         border: 2px solid var(--dark-pink);
         width: 350px;
         height: 30px;
         border-radius: 10px;
         background-color: var(--white);
         padding-left: 10px;
-    }  
+    }
 
-    button{
+    button {
         width: 100px;
         height: 40px;
         font-size: 25px;
@@ -84,7 +86,7 @@ form{
         margin-top: 15px;
     }
 
-    a{
+    a {
         align-self: flex-start;
         margin-left: 25px;
         font-family: 'Rounded Elegance';
@@ -95,14 +97,14 @@ form{
 }
 
 /* Config do HEADER*/
-header{
+header {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    nav{
+    nav {
         width: 100%;
         height: 60px;
         background-color: var(--font);
@@ -110,14 +112,15 @@ header{
         justify-content: center;
         align-items: center;
 
-        ul{
+        ul {
             display: flex;
             justify-content: space-between;
             align-items: center;
             list-style: none;
-            gap: 10px;
+            gap: 50px;
 
-            li, a{
+            li,
+            a {
                 text-decoration: none;
                 color: var(--white);
                 font-family: 'Rounded Elegance';
@@ -129,17 +132,85 @@ header{
 
 
 /* Fita de Filme */
-.fitaFilme{
+.fitaFilme {
     width: 100%;
-    background-color:  var(--font);
+    background-color: var(--font);
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .framesFilme{
+    .framesFilme {
         width: 20px;
         height: 15px;
         background-color: var(--white);
     }
+}
+
+.alinhamento {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links {
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--font);
+    font-family: 'Rounded Elegance';
+    font-size: 25px;
+    align-self: flex-start;
+}
+
+.btnLinks {
+    background-color: var(--dark-pink);
+    padding: 10px;
+    border-radius: 25px;
+    font-family: 'Rounded Elegance';
+    font-size: 25px;
+    width: auto;
+    margin-right: 23px;
+    cursor: pointer;
+
+    a {
+        text-decoration: none;
+        color: var(--white);
+    }
+}
+
+p {
+    margin: 30px;
+    font-family: 'Rounded Elegance';
+    font-size: 30px;
+    color: var(--font);
+}
+
+table {
+    margin-top: 50px;
+    margin-left: 30px;
+    align-self: center;
+    width: 95%;
+    border: var(--ligth-purple) solid 1px;
+    border-collapse: collapse;
+}
+
+
+td {
+    border: 1px solid var(--dark-pink);
+    padding: 8px;
+    text-align: left;
+    font-size: 25px;
+    font-family: 'Rounded Elegance';
+}
+
+th {
+    padding: 8px;
+    border: 1px solid var(--dark-pink);
+    text-align: left;
+    background-color: var(--medium-pink);
+    font-size: 30px;
+    color: var(--white);
+    font-family: 'Rounded Elegance';
 }
