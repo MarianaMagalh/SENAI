@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'New Moon';
+  src: url(./assets/twilight/twilight_New_Moon.ttf) format(truetype);
+}
+
+@font-face {
+  font-family: 'Timeless';
+  src: url(./assets/timeless/Timeless.ttf) format(truetype);
+}
+
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+
+:root{
+  --light-green: #84a98c;
+  --light-blue: #a9d6e5;
+  --dark-green: #1b3a4b;
+  --white: #ffffff;
+  --grey: #f0f0f0;
+  --font: #001233;
+  --ultra-light-green: #eaf4f4;
+}
+
+
+
+h1{
+  font-family: 'New Moon';
+  font-size: 80px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 50px;
+  color: var(--grey);
+}
+
+h2{
+  font-family: 'New Moon';
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 40px;
+  text-align: center;
+  color: var(--grey);
+  margin-bottom: 50px;
+}
+
+.linha{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.quadrado{
+  width: 200px;
+  height: 200px;
+  background-color: var(--ultra-light-green);
+  border: var(--dark-green) solid 1px;
+  margin: 2px;
+  border-radius: 10px;
+  font-size: 50px;
+  font-family: 'Timeless';
+  color: var(--font);
+}
