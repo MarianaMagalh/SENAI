@@ -1,7 +1,7 @@
 
-export default function Quadrado({value, onQuadrado}){
+export default function Quadrado({value, onQuadrado, disabled}){
     return(
-        <button className="quadrado" onClick={onQuadrado}>
+        <button className="quadrado" onClick={onQuadrado} disabled={disabled}>
             {value}
         </button>
     );

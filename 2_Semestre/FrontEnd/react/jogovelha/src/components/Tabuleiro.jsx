@@ -40,19 +40,19 @@ export default function Tabuleiro() {
         <h1>Jogo da Velha</h1>
         <h2>{status}</h2>
         <div className="linha">
-          <Quadrado className="quadrado"  value={quadrados[0]} onQuadrado={() => handleClick(0)} />
-          <Quadrado className="quadrado"  value={quadrados[1]} onQuadrado={() => handleClick(1)} />
-          <Quadrado className="quadrado"  value={quadrados[2]} onQuadrado={() => handleClick(2)} />
+          <Quadrado className="quadrado"  value={quadrados[0]} onQuadrado={() => handleClick(0)} disabled = {!!venceu}/>
+          <Quadrado className="quadrado"  value={quadrados[1]} onQuadrado={() => handleClick(1)} disabled = {!!venceu}/>
+          <Quadrado className="quadrado"  value={quadrados[2]} onQuadrado={() => handleClick(2)} disabled = {!!venceu}/>
         </div>
         <div className="linha">
-          <Quadrado className="quadrado"  value={quadrados[3]} onQuadrado={() => handleClick(3)} />
-          <Quadrado className="quadrado"  value={quadrados[4]} onQuadrado={() => handleClick(4)} />
-          <Quadrado className="quadrado"  value={quadrados[5]} onQuadrado={() => handleClick(5)} />
+          <Quadrado className="quadrado"  value={quadrados[3]} onQuadrado={() => handleClick(3)} disabled = {!!venceu}/>
+          <Quadrado className="quadrado"  value={quadrados[4]} onQuadrado={() => handleClick(4)} disabled = {!!venceu}/>
+          <Quadrado className="quadrado"  value={quadrados[5]} onQuadrado={() => handleClick(5)} disabled = {!!venceu}/>
         </div>
         <div className="linha">
-          <Quadrado className="quadrado"  value={quadrados[6]} onQuadrado={() => handleClick(6)} />
-          <Quadrado className="quadrado"  value={quadrados[7]} onQuadrado={() => handleClick(7)} />
-          <Quadrado className="quadrado"  value={quadrados[8]} onQuadrado={() => handleClick(8)} />
+          <Quadrado className="quadrado"  value={quadrados[6]} onQuadrado={() => handleClick(6)} disabled = {!!venceu}/>
+          <Quadrado className="quadrado"  value={quadrados[7]} onQuadrado={() => handleClick(7)} disabled = {!!venceu}/>
+          <Quadrado className="quadrado"  value={quadrados[8]} onQuadrado={() => handleClick(8)} disabled = {!!venceu}/>
         </div>
       </main>
     </>
