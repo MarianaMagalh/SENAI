@@ -72,6 +72,7 @@ form {
             width: 350px;
             height: 35px;
             margin-bottom: 20px;
+            font-size: 20px;
             border-radius: 10px;
             background-color: var(--white);
             padding-left: 10px;
@@ -145,6 +146,7 @@ button:hover {
         border-radius: 10px;
         background-color: var(--white);
         padding-left: 10px;
+        font-size: 20px;
         font-family: 'Rounded Elegance';
     }
 
@@ -240,6 +242,7 @@ header {
     border-radius: 25px;
     font-family: 'Rounded Elegance';
     font-size: 25px;
+    text-align: center;
     width: auto;
     margin-right: 23px;
     cursor: pointer;
@@ -261,9 +264,10 @@ p {
 table {
     margin-top: 50px;
     align-self: center;
-    width: 95%;
+    width: 80%;
     border: var(--ligth-purple) solid 1px;
     border-collapse: collapse;
+
 }
 
 
@@ -272,8 +276,18 @@ td {
     border: 1.5px solid var(--dark-pink);
     padding: 8px;
     text-align: left;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Rounded Elegance';
+
+    .modLink {
+        align-self: center;
+        margin-left: 25px;
+        margin-top: 20px;
+        font-family: 'Rounded Elegance';
+        text-decoration: none;
+        color: var(--font);
+        font-size: 20px;
+    }
 }
 
 th {
@@ -281,7 +295,44 @@ th {
     border: 1.5px solid var(--dark-pink);
     text-align: left;
     background-color: var(--medium-pink);
-    font-size: 25px;
+    font-size: 20px;
     color: var(--white);
     font-family: 'Rounded Elegance';
+}
+
+.btn {
+    width: 250px;
+    height: 40px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    font-family: 'Rounded Elegance';
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background-color: var(--medium-pink);
+}
+
+.btn2 {
+    width: 250px;
+    height: 40px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    font-family: 'Rounded Elegance';
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.btn2:hover {
+    background-color: var(--medium-pink);
 }
