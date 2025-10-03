@@ -1,0 +1,2 @@
+o arquivo dos cadastros do filmes (filmes.json) estatica
+na pasta SENAI, fora de tudo. :)
