@@ -41,13 +41,13 @@ class MyHandle(SimpleHTTPRequestHandler):
         # Chama o método padrão da classe pai para listar o diretório se necessário (ex: mostra arquivos).
         return super().list_directory(path)
     
-    # Função auxiliar para validar login (exemplo simples e hardcoded, não seguro para produção).
+    # Função auxiliar para validar login 
     # Parâmetros: login (email) e password (senha como string).
     # Retorna uma mensagem de texto para exibir no browser (sucesso ou erro).
-    def accont_user(self, login, password):  # Corrigi 'passaword' para 'password'
-        # Credenciais fixas (em um app real, use banco de dados ou autenticação segura).
+    def accont_user(self, login, password): 
+        # Credenciais fixas
         loga = "mariana@gmail.com"
-        senha = "1234"  # Mudei para str para evitar erros de int (não force conversão).
+        senha = "1234"  
         
         # Verifica se as credenciais fornecidas batem com as fixas.
         if login == loga and password == senha:
@@ -70,7 +70,8 @@ class MyHandle(SimpleHTTPRequestHandler):
                         filme['id'] = i + 1
                 return filmes
         return []
-    # Função auxiliar: Salva a lista de filmes no arquivo JSON. (Sem mudanças, mas mantida aqui para contexto)
+    
+    # Função auxiliar: Salva a lista de filmes no arquivo JSON.
     def salvar_filmes(self, filmes):
         with open('filmes.json', 'w', encoding='utf-8') as f:
             json.dump(filmes, f, ensure_ascii=False, indent=4)
@@ -235,7 +236,7 @@ class MyHandle(SimpleHTTPRequestHandler):
             # **CRIA/ATUALIZA O ARQUIVO HTML** (corrigido: escreve o conteúdo no arquivo).
             caminho_html_saida = os.path.join(os.getcwd(), '2_Semestre', 'BackEnd', 'Aulas', 'WS', 'listar_filmes.html')
             with open(caminho_html_saida, 'w', encoding='utf-8') as h:
-                h.write(html)  # CORREÇÃO: Escreve o HTML no arquivo (era 'h == html').
+                h.write(html)  
             
             print(f"Arquivo HTML criado/atualizado: {caminho_html_saida} (com {len(filmes)} filmes)")
 
