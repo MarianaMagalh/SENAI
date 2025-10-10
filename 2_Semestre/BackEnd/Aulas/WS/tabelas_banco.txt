@@ -1,0 +1,18 @@
+país
+ator_pais
+produtora
+produtora_pais
+filme_categoria
+categoria
+filme_produtora
+filme_ator
+ator
+filme_diretor
+filme_linguagem
+diretor_pais
+genero - pessoa
+diretor
+linguagem
+filme
+  - id_produtura
+  - 

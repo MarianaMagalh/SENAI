@@ -7,6 +7,14 @@ import os
 import json
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs, urlparse
+import mysql.connector # pip install mysql-connector-python
+
+# variavel global
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'senai' 
+)
 
 # Classe personalizada que herda de SimpleHTTPRequestHandler.
 # Ela estende o handler padrão para adicionar lógica personalizada em métodos como do_GET e do_POST.
@@ -41,6 +49,23 @@ class MyHandle(SimpleHTTPRequestHandler):
         # Chama o método padrão da classe pai para listar o diretório se necessário (ex: mostra arquivos).
         return super().list_directory(path)
     
+    
+    def loadFilminhos(self):
+        cursor = mydb.cursor()
+        
+        cursor.execute('SELECT * FROM filmes.Filme')
+        
+        result = cursor.fetchall()
+        
+        print(result)
+        
+        for res in result:
+            id_filme = res[0],
+            titulo = res[1]
+            
+            print(id_filme, titulo)
+            
+            
     # Função auxiliar para validar login 
     # Parâmetros: login (email) e password (senha como string).
     # Retorna uma mensagem de texto para exibir no browser (sucesso ou erro).
