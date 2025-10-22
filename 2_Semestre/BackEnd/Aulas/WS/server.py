@@ -80,26 +80,79 @@ class MyHandle(SimpleHTTPRequestHandler):
         else:
             return "Usuario não existe"  # Mensagem de erro.
     
-    # Função auxiliar: Carrega a lista de filmes do arquivo JSON.
-    # Retorna uma lista de dicionários (cada um é um filme).
-    # Se o arquivo não existir, retorna uma lista vazia.
-    # Adiciona ID incremental se ausente (para compatibilidade).
-    def carregar_filmes(self):
-        arquivo_json = 'filmes.json'
-        if os.path.exists(arquivo_json):
-            with open(arquivo_json, 'r', encoding='utf-8') as f:
-                filmes = json.load(f)
-                # Adiciona ID se ausente (para JSONs antigos)
-                for i, filme in enumerate(filmes):
-                    if 'id' not in filme:
-                        filme['id'] = i + 1
-                return filmes
-        return []
+    # Função carregar_filmes_sql ajustada (para listagem)
+    def carregar_filmes_sql(self):
+        try:
+            cursor = mydb.cursor(dictionary=True)
+            cursor.execute('SELECT filmeID, titulo, atores, diretor, ano, genero, produtora, sinopse, orcamento, tempoDuracao, poster FROM filmes.Filme')
+            result = cursor.fetchall()
+            cursor.close()
+            
+            filmes = []
+            for row in result:
+                filme = {
+                    'id': row['filmeID'],  
+                    'nome_filme': row['titulo'], 
+                    'atores': row.get('atores', 'N/A'),
+                    'diretor': row.get('diretor', 'N/A'),
+                    'ano': str(row.get('ano', 'N/A')),
+                    'genero': row.get('genero', 'N/A'),
+                    'produtora': row.get('produtora', 'N/A'),
+                    'sinopse': row.get('sinopse', 'N/A'),
+                    'orcamento': str(row.get('orcamento', 'N/A')),
+                    'tempoDuracao': row.get('tempoDuracao', 'N/A'),
+                    'poster': row.get('poster', 'N/A')
+                }
+                filmes.append(filme)
+            
+            return filmes
+        except mysql.connector.Error as err:
+            print(f"Erro ao carregar filmes: {err}")
+            return []
+    # Função inserir_filme_sql ajustada
+    def inserir_filme_sql(self, filme_data):
+        try:
+            cursor = mydb.cursor()
+            sql = """
+                INSERT INTO filmes.Filme (titulo, atores, diretor, ano, genero, produtora, sinopse, orcamento, tempoDuracao, poster)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            valores = (
+                filme_data.get('titulo', ''),
+                filme_data.get('atores', ''),
+                filme_data.get('diretor', ''),
+                filme_data.get('ano', ''),
+                filme_data.get('genero', ''),
+                filme_data.get('produtora', ''),
+                filme_data.get('sinopse', ''),
+                filme_data.get('orcamento', None),  
+                filme_data.get('tempoDuracao', ''),
+                filme_data.get('poster', '')
+            )
+            cursor.execute(sql, valores)
+            mydb.commit()
+            filme_id = cursor.lastrowid
+            cursor.close()
+            return filme_id
+        except mysql.connector.Error as err:
+            print(f"Erro ao inserir: {err}")
+            mydb.rollback()
+            return None
+        
+    def excluir_filme_sql(self, filme_id):
+        try:
+            cursor = mydb.cursor()
+            sql = "DELETE FROM filmes.Filme WHERE filmeID=%s"
+            cursor.execute(sql, (filme_id,))
+            mydb.commit()
+            cursor.close()
+            return cursor.rowcount > 0
+        except mysql.connector.Error as err:
+            print(f"Erro ao excluir: {err}")
+            mydb.rollback()
+            return False
     
-    # Função auxiliar: Salva a lista de filmes no arquivo JSON.
-    def salvar_filmes(self, filmes):
-        with open('filmes.json', 'w', encoding='utf-8') as f:
-            json.dump(filmes, f, ensure_ascii=False, indent=4)
+    
     
     # Método sobrescrito: Lida com requisições HTTP GET (ex: carregar páginas ou recursos).
     # Analisa o path da URL e responde de acordo com a rota.
@@ -160,11 +213,10 @@ class MyHandle(SimpleHTTPRequestHandler):
                 
         # Rota para listar filmes: CRIA/ATUALIZA ARQUIVO HTML com dados do JSON, então serve o arquivo.
         elif parsed_path == '/2_Semestre/BackEnd/Aulas/WS/listar_filmes':
-            # Carrega a lista de filmes existentes do JSON.
-            filmes = self.carregar_filmes()
+            # Carrega a lista de filmes existentes do SQL.
+            filmes = self.carregar_filmes_sql()
 
             # Inicia a construção do HTML com DOCTYPE, head e estilos CSS inline (para tabela simples).
-            # Baseado no seu template original, mas com tabela dinâmica e correções.
             html = """<!DOCTYPE html>
             <html lang="pt-BR">
             <head>
@@ -213,13 +265,11 @@ class MyHandle(SimpleHTTPRequestHandler):
                 <h1>Lista de Filmes Cadastrados</h1>
             """
 
-                        # Verifica se há filmes; se não, adiciona mensagem.
             if not filmes:
                 html += "<p>Nenhum filme cadastrado ainda. <a href='/2_Semestre/BackEnd/Aulas/WS/cadastro_filmes'>Cadastrar o primeiro!</a></p>"
             else:
-                # Inicia a tabela com cabeçalhos (adiciona coluna "Ações").
-                
-                html += "<table>\n<thead><tr><th>Nome</th><th>Atores</th><th>Diretor</th><th>Ano</th><th>Gênero</th><th>Produtora</th><th>Sinopse</th><th>Ações</th></tr></thead>\n<tbody>"
+                # Inicia a tabela com cabeçalhos (adiciona colunas para Orçamento, Duração, Poster e Ações).
+                html += "<table>\n<thead><tr><th>Nome</th><th>Atores</th><th>Diretor</th><th>Ano</th><th>Gênero</th><th>Produtora</th><th>Sinopse</th><th>Orçamento</th><th>Duração</th><th>Poster</th><th>Ações</th></tr></thead>\n<tbody>"
                 
                 # Itera sobre cada filme e adiciona uma linha <tr>.
                 for filme in filmes:
@@ -231,7 +281,14 @@ class MyHandle(SimpleHTTPRequestHandler):
                     genero = filme.get('genero', 'N/A').replace('<', '&lt;').replace('>', '&gt;')
                     produtora = filme.get('produtora', 'N/A').replace('<', '&lt;').replace('>', '&gt;')
                     sinopse = filme.get('sinopse', 'N/A').replace('<', '&lt;').replace('>', '&gt;')
+                    orcamento = filme.get('orcamento', 'N/A').replace('<', '&lt;').replace('>', '&gt;')
+                    tempoDuracao = filme.get('tempoDuracao', 'N/A').replace('<', '&lt;').replace('>', '&gt;')
+                    poster = filme.get('poster', 'N/A')  # Não escapa, pois é URL
                     filme_id = filme.get('id', 'N/A')  # ID para os links
+
+                    # Para poster: se for URL válido, mostra imagem pequena; senão, texto
+                    poster_html = f'<img src="{poster}" alt="Poster" style="width:50px; height:auto;" onerror="this.style.display=\'none\'">' if poster != 'N/A' else 'N/A'
+                    
                     html += f"""
                     <tr>
                         <td>{nome}</td>
@@ -241,6 +298,9 @@ class MyHandle(SimpleHTTPRequestHandler):
                         <td>{genero}</td>
                         <td>{produtora}</td>
                         <td>{sinopse}</td>
+                        <td>{orcamento}</td>
+                        <td>{tempoDuracao}</td>
+                        <td>{poster_html}</td>
                         <td>
                             <a class="modLink" href="/2_Semestre/BackEnd/Aulas/WS/editar_filme?id={filme_id}">Editar</a> |
                             <a class="modLink" href="/2_Semestre/BackEnd/Aulas/WS/excluir_filme?id={filme_id}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a>
@@ -250,7 +310,7 @@ class MyHandle(SimpleHTTPRequestHandler):
                 # Fecha a tabela.
                 html += "</tbody></table>"
 
-            # Adiciona link de navegação e fecha o HTML.
+           # Adiciona link de navegação e fecha o HTML.
             html += """
                     <div class="alinhamento">
                         <a class="btnLinks" href="/2_Semestre/BackEnd/Aulas/WS/cadastro_filmes">Adicionar Novo Filme</a>
@@ -258,13 +318,11 @@ class MyHandle(SimpleHTTPRequestHandler):
                 </body>
                 </html>"""
 
-            # **CRIA/ATUALIZA O ARQUIVO HTML** (corrigido: escreve o conteúdo no arquivo).
             caminho_html_saida = os.path.join(os.getcwd(), '2_Semestre', 'BackEnd', 'Aulas', 'WS', 'listar_filmes.html')
             with open(caminho_html_saida, 'w', encoding='utf-8') as h:
                 h.write(html)  
             
             print(f"Arquivo HTML criado/atualizado: {caminho_html_saida} (com {len(filmes)} filmes)")
-
             # Agora, serve o arquivo gerado como resposta HTTP 200 (lê de volta para envio).
             try:
                 with open(caminho_html_saida, 'r', encoding='utf-8') as f:
@@ -275,8 +333,10 @@ class MyHandle(SimpleHTTPRequestHandler):
                 self.wfile.write(content.encode('utf-8'))  # COMPLETO: Fecha o write.
             except FileNotFoundError:
                 self.send_error(404, "Erro ao ler o arquivo gerado!")
-         
+
         # Rota para editar filme: Gera formulário pré-preenchido baseado no ID.
+        # Rota para atualizar filme editado
+                # Rota para editar filme: Gera formulário pré-preenchido baseado no ID (dados do SQL).
         elif parsed_path == '/2_Semestre/BackEnd/Aulas/WS/editar_filme':
             # Extrai ID da query string
             query_params = parse_qs(urlparse(self.path).query)
@@ -286,9 +346,8 @@ class MyHandle(SimpleHTTPRequestHandler):
                 self.send_error(400, "ID do filme não fornecido!")
                 return
 
-            # Carrega filmes e busca o específico
-            filmes = self.carregar_filmes()
-            filme = next((f for f in filmes if f.get('id') == filme_id), None)
+            # Carrega o filme específico do SQL
+            filme = self.carregar_filme_por_id_sql(filme_id)
 
             if not filme:
                 self.send_error(404, "Filme não encontrado!")
@@ -302,6 +361,9 @@ class MyHandle(SimpleHTTPRequestHandler):
             genero = filme.get('genero', '').replace('<', '&lt;').replace('>', '&gt;')
             produtora = filme.get('produtora', '').replace('<', '&lt;').replace('>', '&gt;')
             sinopse = filme.get('sinopse', '').replace('<', '&lt;').replace('>', '&gt;')
+            orcamento = filme.get('orcamento', '').replace('<', '&lt;').replace('>', '&gt;')
+            tempoDuracao = filme.get('tempoDuracao', '').replace('<', '&lt;').replace('>', '&gt;')
+            poster = filme.get('poster', '').replace('<', '&lt;').replace('>', '&gt;')
 
             # Gera HTML do formulário (similar ao cadastro, mas com values preenchidos e action para POST editar)
             html = f"""<!DOCTYPE html>
@@ -339,6 +401,11 @@ class MyHandle(SimpleHTTPRequestHandler):
                             <label for="ano">Ano:</label>
                             <input type="number" id="ano" name="ano" value="{ano}"><br><br>
 
+                            <label for="orcamento">Orçamento:</label>
+                            <input type="number" id="orcamento" name="orcamento" step="0.01" value="{orcamento}"><br><br>
+
+                            <label for="tempoDuracao">Duração:</label>
+                            <input type="text" id="tempoDuracao" name="tempoDuracao" value="{tempoDuracao}"><br><br>
                         </div>
                         <div id="alinhamento">
                             <label for="genero">Gênero:</label>
@@ -349,6 +416,9 @@ class MyHandle(SimpleHTTPRequestHandler):
 
                             <label for="sinopse">Sinopse:</label>
                             <textarea id="sinopse" name="sinopse" rows="4" cols="50">{sinopse}</textarea><br><br>
+
+                            <label for="poster">Poster (URL):</label>
+                            <input type="url" id="poster" name="poster" value="{poster}"><br><br>
                         </div>
                     </div>
                     
@@ -362,28 +432,56 @@ class MyHandle(SimpleHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write(html.encode('utf-8'))
-        
-        # Rota para excluir filme: Remove baseado no ID e redireciona.
+
+         # Rota para excluir filme: Remove baseado no ID e redireciona (dados do SQL).
         elif parsed_path == '/2_Semestre/BackEnd/Aulas/WS/excluir_filme':
             # Extrai ID da query string
             query_params = parse_qs(urlparse(self.path).query)
             filme_id = int(query_params.get('id', [0])[0]) if query_params.get('id') else 0
-
             if filme_id == 0:
                 self.send_error(400, "ID do filme não fornecido!")
                 return
-
-            # Carrega e remove o filme
-            filmes = self.carregar_filmes()
-            filmes = [f for f in filmes if f.get('id') != filme_id]
-            self.salvar_filmes(filmes)
-
+            # Excluir do SQL
+            sucesso = self.excluir_filme_sql(filme_id)
+            if not sucesso:
+                self.send_error(500, "Erro ao excluir filme do banco!")
+                return
             # Redireciona para lista (sem body)
             self.send_response(302)
             self.send_header('Location', '/2_Semestre/BackEnd/Aulas/WS/listar_filmes')
             self.end_headers()
 
-
+    # Adicione esta função logo após excluir_filme_sql()
+    def carregar_filme_por_id_sql(self, filme_id):
+        """
+        Carrega um filme específico do banco MySQL por ID.
+        Retorna um dict com os dados ou None se não encontrado.
+        """
+        try:
+            cursor = mydb.cursor(dictionary=True)
+            sql = "SELECT filmeID, titulo, atores, diretor, ano, genero, produtora, sinopse, orcamento, tempoDuracao, poster FROM filmes.Filme WHERE filmeID = %s"
+            cursor.execute(sql, (filme_id,))
+            result = cursor.fetchone()
+            cursor.close()
+            
+            if result:
+                return {
+                    'id': result['filmeID'],
+                    'nome_filme': result['titulo'],
+                    'atores': result.get('atores', ''),
+                    'diretor': result.get('diretor', ''),
+                    'ano': str(result.get('ano', '')),
+                    'genero': result.get('genero', ''),
+                    'produtora': result.get('produtora', ''),
+                    'sinopse': result.get('sinopse', ''),
+                    'orcamento': str(result.get('orcamento', '')),
+                    'tempoDuracao': result.get('tempoDuracao', ''),
+                    'poster': result.get('poster', '')
+                }
+            return None
+        except mysql.connector.Error as err:
+            print(f"Erro ao carregar filme por ID: {err}")
+            return None
                 
         # Para qualquer outra rota GET não tratada (ex: arquivos estáticos como CSS ou imagens), usa o handler padrão.
         else:

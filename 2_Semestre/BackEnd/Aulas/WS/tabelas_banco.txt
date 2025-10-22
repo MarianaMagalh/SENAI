@@ -15,4 +15,3 @@ diretor
 linguagem
 filme
   - id_produtura
-  - 
